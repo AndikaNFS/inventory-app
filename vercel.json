@@ -13,7 +13,7 @@
     "env": {
         "APP_ENV": "production",
         "APP_DEBUG": "false",
-        "APP_URL": "",
+        "APP_URL": "turntable.proxy.rlwy.net",
         "APP_KEY": "base64:ZpZ1iUiEjTHq8+9m59VyYP8TIa/kEuAtE29Qk1Ph+48=",
         "APP_CONFIG_CACHE": "/tmp/config.php",
         "APP_EVENTS_CACHE": "/tmp/events.php",
