@@ -202,12 +202,12 @@
                         <td
                            class="text-dark border-b border-r border-[#E8E8E8] bg-white dark:border-dark dark:bg-dark-2 dark:text-dark-7 py-5 px-2 text-center text-base font-medium"
                            >
-                           <a
+                           {{-- <a
                               href="{{ url('/report/detail') }}"
                               class="inline-block px-2 py-2 bg-orange-300 border rounded-md border-primary text-primary hover:bg-primary hover:text-zinc-500 font-medium"
                               >
                               Lihat
-                           </a>
+                           </a> --}}
                            <a
                               href="{{ route('admin.devices.edit', $device->id) }}"
                               class="inline-block px-2 py-2 bg-orange-300 border rounded-md border-primary text-primary hover:bg-primary hover:text-zinc-500 font-medium"
