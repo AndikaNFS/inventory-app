@@ -1,17 +1,11 @@
 <x-device-layout>
-<<<<<<< HEAD
+
     {{-- <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('RR Sudirman') }}
         </h2>
     </x-slot> --}}
-=======
-<!--     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('RR Sudirman') }}
-        </h2>
-    </x-slot> -->
->>>>>>> 8271944e99c375d03e750f61338981eb2816f8c2
+
 
     
     <div class="mt-5 flex justify-center items-center place-content-center">
