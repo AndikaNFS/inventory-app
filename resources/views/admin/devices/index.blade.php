@@ -136,11 +136,15 @@
                               >
                                 Keterangan
                            </th> --}}
+                           @if (auth()->user()->hasRole('admin'))
                            <th
                               class="w-auto min-w-[160px] border-r border-transparent py-4 px-3 text-lg font-medium text-white lg:py-7 lg:px-4"
                               >
                               Action
                            </th>
+
+                           
+                           @endif
                         </tr>
                      </thead>
                      <tbody>
@@ -199,39 +203,42 @@
                         Lihat details
                         </a>
                         </td> --}}
-                        <td
-                           class="text-dark border-b border-r border-[#E8E8E8] bg-white dark:border-dark dark:bg-dark-2 dark:text-dark-7 py-5 px-2 text-center text-base font-medium"
-                           >
-                           {{-- <a
-                              href="{{ url('/report/detail') }}"
-                              class="inline-block px-2 py-2 bg-orange-300 border rounded-md border-primary text-primary hover:bg-primary hover:text-zinc-500 font-medium"
+                        @if (auth()->user()->hasRole('admin'))
+                           <td
+                              class="text-dark border-b border-r border-[#E8E8E8] bg-white dark:border-dark dark:bg-dark-2 dark:text-dark-7 py-5 px-2 text-center text-base font-medium"
                               >
-                              Lihat
-                           </a> --}}
-                           <a
-                              href="{{ route('admin.devices.edit', $device->id) }}"
-                              class="inline-block px-2 py-2 bg-orange-300 border rounded-md border-primary text-primary hover:bg-primary hover:text-zinc-500 font-medium"
-                              >
-                              Edit
-                           </a>
-                           <form action="{{ route('admin.devices.destroy', $device->id) }}" method="post" style="display: inline;">
-
-                              @csrf
-                              @method('DELETE')
                               {{-- <a
-                                 href="javascript:void(0)"
-                                 type="submit"
-                                 class="inline-block px-2 py-2 bg-red-500 border rounded-md border-primary text-primary hover:bg-primary hover:text-zinc-500 font-medium"
-                                  onclick="return confirm('Apakah Anda yakin ingin menghapus device ini?')"
+                                 href="{{ url('/report/detail') }}"
+                                 class="inline-block px-2 py-2 bg-orange-300 border rounded-md border-primary text-primary hover:bg-primary hover:text-zinc-500 font-medium"
                                  >
-                                 Delete
+                                 Lihat
                               </a> --}}
-                              <button type="submit" onclick="return confirm('Apakah Anda yakin ingin menghapus device ini?')"
-                              class="inline-block px-2 py-2 bg-red-500 border rounded-md border-primary text-primary hover:bg-primary hover:text-zinc-500 font-medium"
-                              
-                              >Hapus</button>
-                           </form>
-                        </td>
+                              <a
+                                 href="{{ route('admin.devices.edit', $device->id) }}"
+                                 class="inline-block px-2 py-2 bg-orange-300 border rounded-md border-primary text-primary hover:bg-primary hover:text-zinc-500 font-medium"
+                                 >
+                                 Edit
+                              </a>
+                              <form action="{{ route('admin.devices.destroy', $device->id) }}" method="post" style="display: inline;">
+
+                                 @csrf
+                                 @method('DELETE')
+                                 {{-- <a
+                                    href="javascript:void(0)"
+                                    type="submit"
+                                    class="inline-block px-2 py-2 bg-red-500 border rounded-md border-primary text-primary hover:bg-primary hover:text-zinc-500 font-medium"
+                                    onclick="return confirm('Apakah Anda yakin ingin menghapus device ini?')"
+                                    >
+                                    Delete
+                                 </a> --}}
+                                 <button type="submit" onclick="return confirm('Apakah Anda yakin ingin menghapus device ini?')"
+                                 class="inline-block px-2 py-2 bg-red-500 border rounded-md border-primary text-primary hover:bg-primary hover:text-zinc-500 font-medium"
+                                 
+                                 >Hapus</button>
+                              </form>
+                           </td>
+                           
+                        @endif
                         {{-- <td>
                            {{ $device->outlet->id }}
                         </td> --}}

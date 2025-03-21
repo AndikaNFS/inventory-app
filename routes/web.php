@@ -10,9 +10,16 @@ use App\Http\Controllers\ReportController;
 use App\Models\Displacement;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/welcome', function () {
-    return view('welcome');
+// Route::get('/welcome', function () {
+//     return view('welcome');
+// });
+
+Route::middleware(['role:admin'])->group(function () {
+    Route::get('/welcome', function () {
+        return "Ini halaman admin";
+    });
 });
+
 Route::get('/', function () {
     return view('auth.login');
 });
