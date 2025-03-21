@@ -24,8 +24,8 @@ class DeviceImportExportController extends Controller
             return redirect()->back()->with('error', 'Tidak ada data device untuk outlet ini.');
         }
         
-        $spreadsheet = new \PhpOffice\PhpSpreadsheet\Spreadsheet();
-        // $spreadsheet = new Spreadsheet();
+        // $spreadsheet = new \PhpOffice\PhpSpreadsheet\Spreadsheet();
+        $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();
         
         // Header kolom
@@ -37,6 +37,7 @@ class DeviceImportExportController extends Controller
         $columnIndex = 'A';
         foreach ($headers as $header) {
             $sheet->setCellValue($columnIndex . '1', $header);
+            $columnIndex++;
         }
         
         // Isi data
@@ -51,8 +52,8 @@ class DeviceImportExportController extends Controller
             $sheet->setCellValue('G' . $row, $device->status);
 
             // Tambahkan foto jika ada
-            if ($device->image && Storage::exists('public/' . $device->photo)) {
-                $imagePath = storage_path('app/public/images/devices' . $device->photo);
+            if ($device->image && Storage::exists('public/images/devices/' . $device->image)) {
+                $imagePath = storage_path('app/public/images/devices/' . $device->image);
 
                 $drawing = new Drawing();
                 $drawing->setName('Device Image');
@@ -70,8 +71,8 @@ class DeviceImportExportController extends Controller
         $fileName = 'devices_' . strtolower(str_replace(' ', '_', $outletName)) . '.xlsx';
     
         
-        $writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
-        // $writer = new Xlsx($spreadsheet);
+        // $writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
+        $writer = new Xlsx($spreadsheet);
         $filePath = storage_path('app/public/' . $fileName);
         $writer->save($filePath);
 
@@ -81,28 +82,51 @@ class DeviceImportExportController extends Controller
     // Import data device dari Excel
     public function import(Request $request)
     {
-        $request->validate([
-            'file' => 'required|mimes:xlsx,xls',
-        ]);
-
+        // $request->validate([
+        //     'file' => 'required|mimes:xlsx,xls',
+        // ]);
         $file = $request->file('file');
+        
+        // Validasi file harus Excel
+        if (!$file->isValid()) {
+            return back()->with('error', 'File tidak valid.');
+        }
+
         $spreadsheet = IOFactory::load($file->getPathname());
         $sheet = $spreadsheet->getActiveSheet();
         $rows = $sheet->toArray();
 
-        // Lewati header (baris pertama)
-        unset($rows[0]);
+        // Mulai dari baris ke-2 agar tidak mengambil header
+        foreach (array_slice($rows, 1) as $row) {
+            // Pastikan semua kolom tidak kosong
+            if (empty($row[0]) || empty($row[1]) || empty($row[2])) {
+                continue; // Lewati jika ada data kosong
+            }
 
-        foreach ($rows as $row) {
-            Device::updateOrCreate(
-                ['id' => $row[0]], // ID sebagai primary key
-                [
-                    'name' => $row[1],
-                    'outlet_id' => $this->getOutletIdByName($row[2]), // Konversi nama outlet ke ID
-                    'status' => $row[3],
-                ]
-            );
+            Device::create([
+                'device' => $row[0],
+                'merek' => $row[1],
+                'type' => $row[2],
+                'serial_num' => $row[3] ?? null,
+                'qlt' => $row[4] ?? 1,
+                'status' => $row[5] ?? 'Unknown',
+                'outlet_id' => $row[6] ?? null, // Pastikan outlet_id sesuai
+            ]);
         }
+
+        // Lewati header (baris pertama)
+        // unset($rows[0]);
+
+        // foreach ($rows as $row) {
+        //     Device::updateOrCreate(
+        //         ['id' => $row[0]], // ID sebagai primary key
+        //         [
+        //             'name' => $row[1],
+        //             'outlet_id' => $this->getOutletIdByName($row[2]), // Konversi nama outlet ke ID
+        //             'status' => $row[3],
+        //         ]
+        //     );
+        // }
 
         return redirect()->back()->with('success', 'Data berhasil diimport!');
     }
