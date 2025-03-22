@@ -8,6 +8,8 @@ use App\Http\Controllers\OutletController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReportController;
 use App\Models\Displacement;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/welcome', function () {
@@ -41,7 +43,20 @@ Route::get('/create', function () {
 // Route::get('/device/create', [DeviceController::class, 'create'])->name('admin.devices.create');
 // Route::post('/device/store', [DeviceController::class, 'store'])->name('admin.devices.store');
 
+Route::get('/download/{filename}', function ($filename) {
+    $filePath = public_path('files/' . $filename);
 
+    if (!File::exists($filePath)) {
+        abort(404, 'File tidak ditemukan.');
+    }
+
+    return Response::download($filePath);
+    // if (file_exists($filePath)) {
+    //     return Response::download($filePath);
+    // } else {
+    //     return back()->with('error', 'File tidak ditemukan.');
+    // }
+})->where('filename','.*')->name('download.file');
 // Route::get('/dashboard', [DeviceController::class, 'index']);
 Route::middleware(['auth'])->group(function () {
     Route::get('devices/create/{outlet_id}', [DeviceController::class, 'create'])->name('admin.devices.create');

@@ -40,21 +40,26 @@
                     <input type="hidden" name="outlet_awal_id" value="{{ $selectedOutlet }}">
                     {{-- {{ dd($selectedOutlet) }} --}}
             
-                    <div class="mb-3">
-                        <label for="device_id" class="form-label">Device</label>
-                        <select name="device_id" id="device_id" class="form-control">
-                            <option value="">-- Pilih Device --</option>
-                            @foreach($devices as $device)
-                                <option value="{{ $device->id }}">
-                                    {{ $device->device }} - Merek : {{ $device->merek }} - Qlt : {{ $device->qlt }}
-                                </option>
-                            @endforeach
-                        </select>
+                    <div class="grid grid-cols-2 gap-4 mb-2">
+                        <div class="">
+                            <label for="device_id" class="block mb-2 text-sm font-medium text-gray-100 dark:text-black ">Device</label>
+                            <select name="device_id" id="device_id" class="form-control bg-gray-50 border border-gray-300 text-gray-900 mb-6 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
+                                <option value="">-- Pilih Device --</option>
+                                @foreach($devices as $device)
+                                    <option value="{{ $device->id }}">
+                                        {{ $device->device }} - Merek : {{ $device->merek }} - Qlt : {{ $device->qlt }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="">
+                            <label for="jumlah_pindah" class="block mb-2 text-sm font-medium text-gray-100 dark:text-black `">Jumlah Pindah</label>
+                            <input type="number" name="jumlah_pindah" class=" form-control bg-gray-50 border border-gray-300 text-gray-900 mb-6 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" min="1" required>
+                        </div>
                     </div>
-            
-                    <div class="mb-3">
-                        <label for="outlet_tujuan_id" class="form-label">Outlet Tujuan</label>
-                        <select name="outlet_tujuan_id" id="outlet_tujuan_id" class="form-control">
+                    <div class="">
+                        <label for="outlet_tujuan_id" class="block mb-2 text-sm font-medium text-gray-100 dark:text-black ">Outlet Tujuan</label>
+                        <select name="outlet_tujuan_id" id="outlet_tujuan_id" class="form-control form-control bg-gray-50 border border-gray-300 text-gray-900 mb-6 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option value="">-- Pilih Outlet --</option>
                             @foreach($outlets as $outlet)
                                 @if($outlet->id != $selectedOutlet)
@@ -64,27 +69,37 @@
                         </select>
                     </div>
 
-                    <label for="jumlah_pindah">Jumlah Pindah</label>
-                    <input type="number" name="jumlah_pindah" class="form-control" min="1" required>
+                    
                     {{-- <div id="qlt" name="qlt" aria-label="disabled input" class="shrink-0 z-10 inline-flex  items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-s-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600">
                         @foreach ($devices as $device)
                         <span>{{ $device->qlt }}</span>
                             
                         @endforeach
                     </div> --}}
-                    <div>
-                        <label for="name_pic" class="block mb-2 text-sm font-medium text-gray-100 dark:text-black">Name PIC</label>
-                        <input type="text" id="name_pic" name="name_pic" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="John" required />
-                    </div>
-                    <div>
-                        <label for="name_it" class="block mb-2 text-sm font-medium text-gray-100 dark:text-black">Name IT</label>
-                        <input type="text" id="name_it" name="name_it" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Doe" required />
+                    <div class="grid grid-cols-2 gap-4 mb-3">
+                        <div>
+                            <label for="name_pic" class="block mb-2 text-sm font-medium text-gray-100 dark:text-black">Name PIC</label>
+                            <input type="text" id="name_pic" name="name_pic" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="John" required />
+                        </div>
+                        <div>
+                            <label for="name_it" class="block mb-2 text-sm font-medium text-gray-100 dark:text-black">Name IT</label>
+                            <input type="text" id="name_it" name="name_it" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Doe" required />
+                        </div>
+
                     </div>
             
                     <div class="mb-3">
-                        <label for="tanggal_pindah" class="form-label">Tanggal Pindah</label>
-                        <input type="date" name="tanggal_pindah" id="tanggal_pindah" class="form-control" required>
+                        <label for="tanggal_pindah" class="block mb-2 text-sm font-medium text-gray-100 dark:text-black">Tanggal Pindah</label>
+                        <input 
+                            type="date" 
+                            name="tanggal_pindah" 
+                            id="tanggal_pindah" 
+                            class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+                            required
+                            />
+                            
                     </div>
+                    
                     <div class="mb-6">
                     
                         <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Keterangan</label>

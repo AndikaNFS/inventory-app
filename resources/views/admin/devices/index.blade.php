@@ -5,6 +5,10 @@
       <div class="flex">
          <div class="">
             <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+               {{-- <input type="hidden" value="{{ $outlet_id }}"> --}}
+               {{-- @foreach ($devices as $outlet )
+                  {{ $outlet->id->name }}
+               @endforeach --}}
                List Device || {{ $outlet_id }}
                
             </h2>
@@ -46,6 +50,9 @@
                   </form>
    
                </div>
+               <a href="{{ route('download.file', ['filename' => 'FormatDataIT.xlsx']) }}" class="btn btn-primary text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-sm w-full sm:w-auto px-3 py-3 text-center dark:bg-cyan-600 dark:hover:bg-cyan-700">
+                  Download Format File
+              </a>
                
             </div> 
             <div class=" flex place-content-end">
