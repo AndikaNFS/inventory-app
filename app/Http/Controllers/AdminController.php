@@ -2,22 +2,33 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\Outlet;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 
-class OutletController extends Controller
+class AdminController extends Controller
 {
+
+    public function makeAdmin($id)
+    {
+        $user = User::findOrFail($id);
+
+        if ($user->hasRole('admin')) {
+            return back()->with('message', 'User sudah menjadi admin.');
+        }
+
+        $user->assignRole('admin');
+
+        return back()->with('message', 'User berhasil dijadikan admin.');
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        // $outlets = Outlet::all();
-        $outlets = Outlet::with('device')->get();
-
-
-        return view('dashboard', compact('outlets'));
+        $users = User::all();
+        return view('users.index', compact('users'));
     }
 
     /**
@@ -25,8 +36,7 @@ class OutletController extends Controller
      */
     public function create()
     {
-        return view ('admin.outlets.create');
-        
+        //
     }
 
     /**
@@ -34,23 +44,7 @@ class OutletController extends Controller
      */
     public function store(Request $request)
     {
-        // Validasi input
-        $request->validate([
-            'name' => 'required|string|max:225',
-            'location' => 'required|string|max:225',
-
-         ]);
-
-         
-
-        //  simpan data
-        Outlet::create([
-            'name' => $request->name,
-            'location' => $request->location,
-        ]);
-
-        // Redirect ke daftar device berdasarkan outlet_id
-        return redirect()->route('dashboard')->with('success', 'Outlet berhasil ditambahkan!');
+        //
     }
 
     /**

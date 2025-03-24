@@ -14,6 +14,40 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         {{-- @vite('resources/css/app.css') --}}
+
+        <style>
+            .date-container {
+                position: relative;
+                display: inline-block;
+                width: 100%;
+            }
+
+            .date-container input[type="date"] {
+                padding-left: 40px; /* Beri jarak untuk ikon */
+                color: white;
+                width: 100%;
+            }
+
+            .date-container::before {
+                content: "📅"; /* Atau gunakan FontAwesome */
+                position: absolute;
+                left: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+                color: white; /* Warna ikon */
+                font-size: 16px;
+                pointer-events: none; /* Supaya tidak mengganggu klik */
+            }
+
+            /* Untuk tombol kalender bawaan browser */
+            .date-container input[type="date"]::-webkit-calendar-picker-indicator {
+                position: absolute;
+                right: 10px; /* Pindahkan ke dalam container */
+                cursor: pointer;
+                opacity: 1;
+                filter: invert(1); /* Ubah warna jadi putih jika perlu */
+            }
+                    </style>
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">

@@ -17,21 +17,49 @@ class DeviceController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index($outlet_id)
+    public function index(Request $request, $outlet_id)
     {
         // $devices = Device::orderByDesc('id')->get();
-        $devices = Device::where('outlet_id', $outlet_id,)->get();
         $outlets = Outlet::all();
+        $searchTerm = $request->input('search');
+        // $merek = $request->input('merek');
+        // $status = $request->input('status');
         // $outlet = Outlet::with('devices')->findOrFail($outlet_id);
-
+        
+        // $devices = Device::where('outlet_id', $outlet_id,)->get();
+        $devices = Device::where('outlet_id', $outlet_id)
+                ->where(function ($query) use ($searchTerm) {
+                    if (!empty($searchTerm)) {
+                        $query->where('device', 'LIKE', "%{$searchTerm}%")
+                              ->orWhere('merek', 'LIKE', "%{$searchTerm}%")
+                              ->orWhere('status', 'LIKE', "%{$searchTerm}%");
+                    }
+                })
+                ->get();
+        
+        
+        
         if ($devices->isEmpty()) {
-            return "Tidak ad device untuk outlet ini.";
+            return view('admin.devices.index', compact('devices', 'outlets', 'outlet_id'))
+            ->with('message', 'Tidak ada device untuk outlet ini.');
         }
 
         return view('admin.devices.index', compact('devices', 'outlets', 'outlet_id'));
         // return view('admin.devices.index', compact('outlet'));
         
     }
+
+    // public function search(Request $request, $outletId)
+    // {
+    //     $searchTerm = $request->input('search');
+
+    //     // Query berdasarkan outlet dan pencarian
+    //     $devices = Device::where('outlet_id', $outletId)
+    //                 ->where('name', 'LIKE', "%{$searchTerm}%")
+    //                 ->get();
+
+    //     return view('admin.devices.search', compact('devices'));
+    // }
 
     /**
      * Show the form for creating a new resource.

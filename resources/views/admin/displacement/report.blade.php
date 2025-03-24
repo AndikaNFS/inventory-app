@@ -64,14 +64,19 @@
                     @endforeach
                 </div>
     </div> --}}
-    <div class="flex flex-wrap -mx-4"> 
+    <div class="flex flex-wrap -mx-4 mt-5"> 
         <div class="w-full px-4">
            <div class=" max-w-full overflow-x-auto content-center ">
               <div class="grid place-content-center">
 
-                 <table class="table-auto">
+                 <table class="table-auto m-10">
                     <thead>
                        <tr class="text-center bg-primary">
+                          <th
+                             class="w-auto min-w-[15px] border-l border-transparent py-4 px-3 text-lg font-medium text-white lg:py-7 lg:px-4"
+                             >
+                             NO
+                          </th>
                           <th
                              class="w-auto min-w-[15px] border-l border-transparent py-4 px-3 text-lg font-medium text-white lg:py-7 lg:px-4"
                              >
@@ -115,7 +120,7 @@
                           <th
                              class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-white lg:py-7 lg:px-4"
                              >
-                               Status
+                               Ketarangan
                           </th>
                           {{-- <th
                              class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-white lg:py-7 lg:px-4"
@@ -135,6 +140,12 @@
                  <input type="hidden" value="{{ $key + 1 }}">
 
                     <tr class="">
+                     <td
+                          class="text-dark border-b border-[#E8E8E8] bg-white dark:border-dark dark:bg-dark-2 dark:text-dark-7 py-5 px-2 text-center text-base font-medium"
+                          >
+                          {{ $dis->id }}
+                          
+                       </td>
                        <td
                           class="text-dark border-b border-l border-[#E8E8E8] bg-white dark:bg-dark-3 dark:border-dark dark:text-dark-7 py-5 px-2 text-center text-base font-medium"
                           >

@@ -47,7 +47,7 @@
                                 <option value="">-- Pilih Device --</option>
                                 @foreach($devices as $device)
                                     <option value="{{ $device->id }}">
-                                        {{ $device->device }} - Merek : {{ $device->merek }} - Qlt : {{ $device->qlt }}
+                                        {{ $device->device }} | Merek : {{ $device->merek }} | Qlt : {{ $device->qlt }}
                                     </option>
                                 @endforeach
                             </select>
@@ -57,16 +57,29 @@
                             <input type="number" name="jumlah_pindah" class=" form-control bg-gray-50 border border-gray-300 text-gray-900 mb-6 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" min="1" required>
                         </div>
                     </div>
-                    <div class="">
-                        <label for="outlet_tujuan_id" class="block mb-2 text-sm font-medium text-gray-100 dark:text-black ">Outlet Tujuan</label>
-                        <select name="outlet_tujuan_id" id="outlet_tujuan_id" class="form-control form-control bg-gray-50 border border-gray-300 text-gray-900 mb-6 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option value="">-- Pilih Outlet --</option>
-                            @foreach($outlets as $outlet)
-                                @if($outlet->id != $selectedOutlet)
-                                    <option value="{{ $outlet->id }}">{{ $outlet->name }}</option>
-                                @endif
-                            @endforeach
-                        </select>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="">
+                            <label for="outlet_tujuan_id" class="block mb-2 text-sm font-medium text-gray-100 dark:text-black ">Outlet Tujuan</label>
+                            <select name="outlet_tujuan_id" id="outlet_tujuan_id" class="form-control form-control bg-gray-50 border border-gray-300 text-gray-900 mb-6 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <option value="">-- Pilih Outlet --</option>
+                                @foreach($outlets as $outlet)
+                                    @if($outlet->id != $selectedOutlet)
+                                        <option value="{{ $outlet->id }}">{{ $outlet->name }}</option>
+                                    @endif
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="date-container">
+                            <label for="tanggal_pindah" class="block mb-2 text-sm font-medium text-gray-100 dark:text-black">Tanggal Pindah</label>
+                            <input 
+                                type="date" 
+                                name="tanggal_pindah" 
+                                id="tanggal_pindah" 
+                                class="form-control bg-gray-50 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+                                required
+                                />
+                                
+                        </div>
                     </div>
 
                     
@@ -88,17 +101,7 @@
 
                     </div>
             
-                    <div class="mb-3">
-                        <label for="tanggal_pindah" class="block mb-2 text-sm font-medium text-gray-100 dark:text-black">Tanggal Pindah</label>
-                        <input 
-                            type="date" 
-                            name="tanggal_pindah" 
-                            id="tanggal_pindah" 
-                            class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-                            required
-                            />
-                            
-                    </div>
+                    
                     
                     <div class="mb-6">
                     

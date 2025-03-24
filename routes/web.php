@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\DeviceImportExportController;
@@ -21,6 +22,12 @@ Route::middleware(['role:admin'])->group(function () {
         return "Ini halaman admin";
     });
 });
+
+Route::get('/admin/index', [AdminController::class, 'index'])->name('users.index')
+        ->middleware('role:admin');
+
+Route::post('/admin/make-admin/{id}', [AdminController::class, 'makeAdmin'])->name('admin.makeAdmin')
+    ->middleware('role:admin');
 
 Route::get('/', function () {
     return view('auth.login');
@@ -69,13 +76,16 @@ Route::middleware(['auth'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/devices/outlet/{outlet_id}', [DeviceController::class, 'index'])->name('admin.devices.index');
+    Route::get('/devices/outlet/{outlet_id}/search', [DeviceController::class, 'search'])->name('admin.devices.search');
     
     
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
+    
     Route::get('/dashboard', [OutletController::class, 'index'])->name('dashboard');
+    Route::get('/outlets/create/', [OutletController::class, 'create'])->name('admin.outlets.create');
+    Route::post('/outlets/store', [OutletController::class, 'store'])->name('admin.outlets.store');
     
     // Route::get('/displacement', [DisplacementController::class, 'index'])->name('admin.displacement.index');
     Route::get('/displacement/create', [DisplacementController::class, 'create'])->name('admin.displacement.create');
