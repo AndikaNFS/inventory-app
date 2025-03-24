@@ -1,4 +1,5 @@
 <x-guest-layout>
+    @section('title', 'Login - ' . config('app.name'))
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 

@@ -1,15 +1,17 @@
 <x-device-layout>
+   @section('title', 'Web Inventory - ' . config('app.name'))
    <x-slot name="header">
       
       {{-- @foreach ($devices as $device ) --}}
       <div class="flex">
          <div class="">
             <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-               {{-- <input type="hidden" value="{{ $outlet_id }}"> --}}
-               {{-- @foreach ($devices as $outlet )
-                  {{ $outlet->id->name }}
+               {{-- <input type="hidden" value="{{ $outlet_id }}">
+               @foreach ($devices as $device )
+                  {{ $device->outlet->name }}
                @endforeach --}}
-               List Device | {{ $outlet_id }}
+               List Device | {{ $outlets->where('id', $outlet_id)->first()->name ?? 'Outlet Tidak Ditemukan' }} | {{ $outlet_id }}
+
                
             </h2>
 
@@ -50,10 +52,21 @@
                   </form>
    
                </div>
-               <a href="{{ route('download.file', ['filename' => 'FormatDataIT.xlsx']) }}" class="btn btn-primary text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-sm w-full sm:w-auto px-3 py-3 text-center dark:bg-cyan-600 dark:hover:bg-cyan-700">
-                  Download Format File
-              </a>
                
+              <button data-popover-target="popover-click" data-popover-trigger="click" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Format File</button>
+
+              <div data-popover id="popover-click" role="tooltip" class="absolute z-10 invisible inline-block w-96 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-xs opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+                  <div class="px-3 py-2 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700">
+                      <h3 class="font-semibold text-gray-900 dark:text-white">Format File</h3>
+                  </div>
+                  <div class="px-3 py-2">
+                      <p>Sebelum Download file mohon cek dahulu "outlet_id" Import berdasarkan outlet ID yang ada sebelah kanan List Device</p>
+                      <a href="{{ route('download.file', ['filename' => 'FormatDataIT.xlsx']) }}" class=" text-white focus:outline-none font-medium rounded-md text-sm w-full sm:w-auto  text-center  dark:hover:text-cyan-700">
+                         Download
+                     </a>
+                  </div>
+                  <div data-popper-arrow></div>
+              </div>
             </div>
 
 

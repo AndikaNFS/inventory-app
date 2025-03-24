@@ -13,7 +13,7 @@
             <div class="alert alert-success">{{ session('success') }}</div>
         @endif
 
-        <div class="w-3/4  border border-gray-500 rounded-lg dark:bg-white">
+        <div class="w-3/4 mt-10 border border-gray-500 rounded-lg dark:bg-white">
             <div class="mt-5 flex justify-center">
                 <h2 class="font-semibold text-3xl items-center text-gray-800 dark:text-black leading-tight">
                     Form Perpindahan Barang
