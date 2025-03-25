@@ -10,7 +10,7 @@
     <div class="container mx-auto">
       <div class=" flex place-content-end">
          <a href="{{ route('outlets.create') }}">
-            <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add Outlet</button>   
+            <button type="submit" class="text-white dark:text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add Outlet</button>   
          </a>
       </div>
        <div class="flex flex-wrap -mx-4">
@@ -21,22 +21,22 @@
                      <thead>
                         <tr class="text-center bg-primary">
                            <th
-                           class="w-auto min-w-[15px] border-l border-transparent py-4 px-3 text-lg font-medium text-white lg:py-7 lg:px-4"
+                           class="w-auto min-w-[15px] border-l border-transparent py-4 px-3 text-lg font-medium text-black dark:text-white lg:py-7 lg:px-4"
                               >
                               ID
                            </th>
                            <th
-                              class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-white lg:py-7 lg:px-4"
+                              class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-black dark:text-white lg:py-7 lg:px-4"
                               >
                               Name
                            </th>
                            <th
-                           class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-white lg:py-7 lg:px-4"
+                           class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-black dark:text-white lg:py-7 lg:px-4"
                               >
                               Location
                            </th>
                            <th
-                           class="w-auto min-w-[160px] border-r border-transparent py-4 px-3 text-lg font-medium text-white lg:py-7 lg:px-4"
+                           class="w-auto min-w-[160px] border-r border-transparent py-4 px-3 text-lg font-medium text-black dark:text-white lg:py-7 lg:px-4"
                               >
                               Register
                            </th>

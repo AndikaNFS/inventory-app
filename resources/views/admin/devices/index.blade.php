@@ -33,7 +33,7 @@
             <div class="flex ">
                <form action="{{ route('admin.devices.export') }}" method="GET" class="">
                    {{-- <label for="outlet">Pilih Outlet:</label> --}}
-                   <select name="outlet_id" id="outlet" class="text-white bg-blue-700  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-s-md text-sm w-full sm:w-auto px-5 py-2.5 dark:bg-gray-700  dark:focus:ring-blue-800" required>
+                   <select name="outlet_id" id="outlet" class="text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-s-md text-sm w-full sm:w-auto px-5 py-2.5 dark:bg-gray-700 dark:text-white dark:focus:ring-blue-800" required>
                        <option value="" >Pilih Outlet</option>
                        @foreach($outlets as $outlet)
                            <option value="{{ $outlet->id }}" >{{ $outlet->id }} | {{ $outlet->name }}</option>
@@ -41,7 +41,7 @@
                    </select>
                    <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-e-md text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-500 dark:hover:bg-green-700 dark:focus:ring-blue-800">Export</button>
                </form>
-               <div class="flex text-white bg-blue-700  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-s-md text-sm w-full sm:w-auto px-5  text-center dark:bg-gray-700  dark:focus:ring-blue-800">
+               <div class="flex text-white   focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-s-md text-sm w-full sm:w-auto px-5  text-center dark:bg-gray-700  dark:focus:ring-blue-800">
                   <form action="{{ route('admin.devices.import') }}" method="POST" enctype="multipart/form-data" class="">
                      @csrf
                      <div class="flex items-center ">
@@ -116,48 +116,48 @@
                      <thead>
                         <tr class="text-center bg-primary">
                            <th
-                              class="w-auto min-w-[15px] border-l border-transparent py-4 px-3 text-lg font-medium text-white lg:py-7 lg:px-4"
+                              class="w-auto min-w-[15px] border-l border-transparent py-4 px-3 text-lg font-medium text-black dark:text-white lg:py-7 lg:px-4"
                               >
                               Image
                            </th>
                            <th
-                              class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-white lg:py-7 lg:px-4"
+                              class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-black dark:text-white lg:py-7 lg:px-4"
                               >
                               Device
                            </th>
                            <th
-                              class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-white lg:py-7 lg:px-4"
+                              class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-black dark:text-white lg:py-7 lg:px-4"
                               >
                               Merek
                            </th>
                            <th
-                              class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-white lg:py-7 lg:px-4"
+                              class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-black dark:text-white lg:py-7 lg:px-4"
                               >
                               Type
                            </th>
                            <th
-                              class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-white lg:py-7 lg:px-4"
+                              class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-black dark:text-white lg:py-7 lg:px-4"
                               >
                               Qlt
                            </th>
                            <th
-                              class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-white lg:py-7 lg:px-4"
+                              class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-black dark:text-white lg:py-7 lg:px-4"
                               >
                               Serial Number
                            </th>
                            <th
-                              class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-white lg:py-7 lg:px-4"
+                              class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-black dark:text-white lg:py-7 lg:px-4"
                               >
                                 Status
                            </th>
                            {{-- <th
-                              class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-white lg:py-7 lg:px-4"
+                              class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-black dark:text-white lg:py-7 lg:px-4"
                               >
                                 Keterangan
                            </th> --}}
                            @if (auth()->user()->hasRole('admin'))
                            <th
-                              class="w-auto min-w-[160px] border-r border-transparent py-4 px-3 text-lg font-medium text-white lg:py-7 lg:px-4"
+                              class="w-auto min-w-[160px] border-r border-transparent py-4 px-3 text-lg font-medium text-black dark:text-white lg:py-7 lg:px-4"
                               >
                               Action
                            </th>
