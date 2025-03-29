@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+        <h2 class="font-semibold text-xl text-gray-200 dark:text-gray-200 leading-tight">
             {{ __('Dashboard Outlet') }}
         </h2>
     </x-slot>
@@ -21,22 +21,22 @@
                      <thead>
                         <tr class="text-center bg-primary">
                            <th
-                           class="w-auto min-w-[15px] border-l border-transparent py-4 px-3 text-lg font-medium text-black dark:text-white lg:py-7 lg:px-4"
+                           class="w-auto min-w-[15px] border-l border-transparent py-4 px-3 text-lg font-medium text-white dark:text-white lg:py-7 lg:px-4"
                               >
                               ID
                            </th>
                            <th
-                              class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-black dark:text-white lg:py-7 lg:px-4"
+                              class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-white dark:text-white lg:py-7 lg:px-4"
                               >
                               Name
                            </th>
                            <th
-                           class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-black dark:text-white lg:py-7 lg:px-4"
+                           class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-white dark:text-white lg:py-7 lg:px-4"
                               >
                               Location
                            </th>
                            <th
-                           class="w-auto min-w-[160px] border-r border-transparent py-4 px-3 text-lg font-medium text-black dark:text-white lg:py-7 lg:px-4"
+                           class="w-auto min-w-[160px] border-r border-transparent py-4 px-3 text-lg font-medium text-white dark:text-white lg:py-7 lg:px-4"
                               >
                               Register
                            </th>

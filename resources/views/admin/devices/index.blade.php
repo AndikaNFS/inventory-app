@@ -5,7 +5,7 @@
       {{-- @foreach ($devices as $device ) --}}
       <div class="flex">
          <div class="">
-            <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            <h2 class="font-semibold text-xl text-gray-200 dark:text-gray-200 leading-tight">
                {{-- <input type="hidden" value="{{ $outlet_id }}">
                @foreach ($devices as $device )
                   {{ $device->outlet->name }}
@@ -29,7 +29,7 @@
     <div class="container mx-auto">
       <div class="">
          {{-- @foreach ($devices as $device) --}}
-          <div class="flex justify-between place-items-center bg-gray-50 border border-gray-300 text-gray-900 mb-6 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500">
+          <div class="flex justify-between place-items-center bg-gray-700 border border-gray-600 text-gray-900 mb-6 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500">
             <div class="flex ">
                <form action="{{ route('admin.devices.export') }}" method="GET" class="">
                    {{-- <label for="outlet">Pilih Outlet:</label> --}}
@@ -45,7 +45,7 @@
                   <form action="{{ route('admin.devices.import') }}" method="POST" enctype="multipart/form-data" class="">
                      @csrf
                      <div class="flex items-center ">
-                        <input type="file" name="file" class="w-full text-sm text-gray-900 border border-gray-300 h-11 content-center rounded-s-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="large_size" type="file" required>
+                        <input type="file" name="file" class="w-full text-sm text-gray-300 border border-gray-600 h-11 content-center rounded-s-lg cursor-pointer bg-gray-600 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="large_size" type="file" required>
                         <button type="submit" class=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-e-md text-sm w-full sm:w-auto px-3 py-3 text-center dark:bg-green-500 dark:hover:bg-green-700" >Import</button>
 
                      </div>
@@ -55,13 +55,13 @@
                
               <button data-popover-target="popover-click" data-popover-trigger="click" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Format File</button>
 
-              <div data-popover id="popover-click" role="tooltip" class="absolute z-10 invisible inline-block w-96 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-xs opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
-                  <div class="px-3 py-2 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700">
-                      <h3 class="font-semibold text-gray-900 dark:text-white">Format File</h3>
+              <div data-popover id="popover-click" role="tooltip" class="absolute z-10 invisible inline-block w-96 text-sm text-gray-500 transition-opacity duration-300 bg-gray-300 border border-gray-500 rounded-lg shadow-xs opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+                  <div class="px-3 py-2 bg-gray-600 border-b border-gray-6=500 rounded-t-lg dark:border-gray-600 dark:bg-gray-700">
+                      <h3 class="font-semibold text-gray-200 dark:text-white">Format File</h3>
                   </div>
                   <div class="px-3 py-2">
-                      <p>Sebelum Download file mohon cek dahulu "outlet_id" Import berdasarkan outlet ID yang ada sebelah kanan List Device</p>
-                      <a href="{{ route('download.file', ['filename' => 'FormatDataIT.xlsx']) }}" class=" text-white focus:outline-none font-medium rounded-md text-sm w-full sm:w-auto  text-center  dark:hover:text-cyan-700">
+                      <p class="text-black">Sebelum Download file mohon cek dahulu "outlet_id" Import berdasarkan outlet ID yang ada sebelah kanan List Device</p>
+                      <a href="{{ route('download.file', ['filename' => 'FormatDataIT.xlsx']) }}" class="text-blue-500 hover:text-cyan-700 hover:font-bold focus:outline-none font-medium rounded-md text-sm w-full sm:w-auto  text-center  dark:hover:text-cyan-700">
                          Download
                      </a>
                   </div>
@@ -116,48 +116,48 @@
                      <thead>
                         <tr class="text-center bg-primary">
                            <th
-                              class="w-auto min-w-[15px] border-l border-transparent py-4 px-3 text-lg font-medium text-black dark:text-white lg:py-7 lg:px-4"
+                              class="w-auto min-w-[15px] border-l border-transparent py-4 px-3 text-lg font-medium text-white dark:text-white lg:py-7 lg:px-4"
                               >
                               Image
                            </th>
                            <th
-                              class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-black dark:text-white lg:py-7 lg:px-4"
+                              class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-white dark:text-white lg:py-7 lg:px-4"
                               >
                               Device
                            </th>
                            <th
-                              class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-black dark:text-white lg:py-7 lg:px-4"
+                              class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-white dark:text-white lg:py-7 lg:px-4"
                               >
                               Merek
                            </th>
                            <th
-                              class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-black dark:text-white lg:py-7 lg:px-4"
+                              class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-white dark:text-white lg:py-7 lg:px-4"
                               >
                               Type
                            </th>
                            <th
-                              class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-black dark:text-white lg:py-7 lg:px-4"
+                              class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-white dark:text-white lg:py-7 lg:px-4"
                               >
                               Qlt
                            </th>
                            <th
-                              class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-black dark:text-white lg:py-7 lg:px-4"
+                              class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-white dark:text-white lg:py-7 lg:px-4"
                               >
                               Serial Number
                            </th>
                            <th
-                              class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-black dark:text-white lg:py-7 lg:px-4"
+                              class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-white dark:text-white lg:py-7 lg:px-4"
                               >
                                 Status
                            </th>
                            {{-- <th
-                              class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-black dark:text-white lg:py-7 lg:px-4"
+                              class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-white dark:text-white lg:py-7 lg:px-4"
                               >
                                 Keterangan
                            </th> --}}
                            @if (auth()->user()->hasRole('admin'))
                            <th
-                              class="w-auto min-w-[160px] border-r border-transparent py-4 px-3 text-lg font-medium text-black dark:text-white lg:py-7 lg:px-4"
+                              class="w-auto min-w-[160px] border-r border-transparent py-4 px-3 text-lg font-medium text-white dark:text-white lg:py-7 lg:px-4"
                               >
                               Action
                            </th>

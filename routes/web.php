@@ -6,6 +6,7 @@ use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\DeviceImportExportController;
 use App\Http\Controllers\DisplacementController;
 use App\Http\Controllers\OutletController;
+use App\Http\Controllers\TicketController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReportController;
 use App\Models\Displacement;
@@ -77,6 +78,12 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/devices/outlet/{outlet_id}', [DeviceController::class, 'index'])->name('admin.devices.index');
     Route::get('/devices/outlet/{outlet_id}/search', [DeviceController::class, 'search'])->name('admin.devices.search');
+
+    Route::get('/tickets', [TicketController::class, 'index'])->name('admin.tickets.index');
+    Route::get('/tickets/create', [TicketController::class, 'create'])->name('admin.tickets.create');
+    Route::get('/tickets/{id}/edit', [TicketController::class, 'edit'])->name('admin.tickets.edit');
+    Route::put('/tickets/{id}', [TicketController::class, 'update'])->name('admin.tickets.update');
+    Route::post('/tickets/store', [TicketController::class, 'store'])->name('admin.tickets.store');
     
     
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

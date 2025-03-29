@@ -1,6 +1,6 @@
 <x-device-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+        <h2 class="font-semibold text-xl text-gray-300 dark:text-gray-200 leading-tight">
             {{ __('Reporting Perpindahan Barang') }}
         </h2>
     </x-slot>
@@ -73,52 +73,52 @@
                     <thead>
                        <tr class="text-center bg-primary">
                           <th
-                             class="w-auto min-w-[15px] border-l border-transparent py-4 px-3 text-lg font-medium text-black dark:text-white lg:py-7 lg:px-4"
+                             class="w-auto min-w-[15px] border-l border-transparent py-4 px-3 text-lg font-medium text-white dark:text-white lg:py-7 lg:px-4"
                              >
                              NO
                           </th>
                           <th
-                             class="w-auto min-w-[15px] border-l border-transparent py-4 px-3 text-lg font-medium text-black dark:text-white lg:py-7 lg:px-4"
+                             class="w-auto min-w-[15px] border-l border-transparent py-4 px-3 text-lg font-medium text-white dark:text-white lg:py-7 lg:px-4"
                              >
                              Image
                           </th>
                           <th
-                             class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-black dark:text-white lg:py-7 lg:px-4"
+                             class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-white dark:text-white lg:py-7 lg:px-4"
                              >
                              Device
                           </th>
                           <th
-                             class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-black dark:text-white lg:py-7 lg:px-4"
+                             class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-white dark:text-white lg:py-7 lg:px-4"
                              >
                              Outlet Awal
                           </th>
                           <th
-                             class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-black dark:text-white lg:py-7 lg:px-4"
+                             class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-white dark:text-white lg:py-7 lg:px-4"
                              >
                              Outlet Tujuan
                           </th>
                           <th
-                             class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-black dark:text-white lg:py-7 lg:px-4"
+                             class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-white dark:text-white lg:py-7 lg:px-4"
                              >
                              Merek
                           </th>
                           <th
-                             class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-black dark:text-white lg:py-7 lg:px-4"
+                             class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-white dark:text-white lg:py-7 lg:px-4"
                              >
                              Type
                           </th>
                           <th
-                             class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-black dark:text-white lg:py-7 lg:px-4"
+                             class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-white dark:text-white lg:py-7 lg:px-4"
                              >
                              Serial Number
                           </th>
                           <th
-                             class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-black dark:text-white lg:py-7 lg:px-4"
+                             class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-white dark:text-white lg:py-7 lg:px-4"
                              >
                              Qlt
                           </th>
                           <th
-                             class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-black dark:text-white lg:py-7 lg:px-4"
+                             class="w-auto min-w-[160px] py-4 px-3 text-lg font-medium text-white dark:text-white lg:py-7 lg:px-4"
                              >
                                Ketarangan
                           </th>

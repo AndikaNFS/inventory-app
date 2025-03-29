@@ -30,12 +30,24 @@ class DeviceController extends Controller
         $devices = Device::where('outlet_id', $outlet_id)
                 ->where(function ($query) use ($searchTerm) {
                     if (!empty($searchTerm)) {
-                        $query->where('device', 'LIKE', "%{$searchTerm}%")
-                              ->orWhere('merek', 'LIKE', "%{$searchTerm}%")
-                              ->orWhere('status', 'LIKE', "%{$searchTerm}%");
+                        $searchTerm = strtolower($searchTerm);
+                        $query->whereRaw('LOWER(device) LIKE ? ', ["%{$searchTerm}%"])
+                              ->orWhereRaw('LOWER(merek) LIKE ? ', ["%{$searchTerm}%"])
+                              ->orWhereRaw('LOWER(status) LIKE ?', ["%{$searchTerm}%"]);
                     }
                 })
                 ->get();
+
+        // $devices = Device::where('outlet_id', $outlet_id)
+        //     ->when($searchTerm, function ($query, $searchTerm) {
+        //         $query->where(function ($q) use ($searchTerm) {
+        //             $q->where('device', 'LIKE', "%{$searchTerm}%")
+        //             ->orWhere('merek', 'LIKE', "%{$searchTerm}%")
+        //             ->orWhere('status', 'LIKE', "%{$searchTerm}%");
+        //         });
+        //     })
+        // ->get();
+
         
         
         
